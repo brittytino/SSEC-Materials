@@ -1,138 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Matrimony - Find Your Soulmate</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; }
-    .active-tab { @apply bg-pink-600 text-white; }
-  </style>
-</head>
-<body class="bg-white text-gray-800">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dog Breed Sale | PawPerfect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans">
 
-  <!-- Header -->
-  <header class="bg-pink-600 text-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">💍 Matrimony</h1>
-      <nav class="space-x-6 hidden md:block">
-        <a href="#" class="hover:underline">Home</a>
-        <a href="#auth" class="hover:underline">Register/Login</a>
-        <a href="#profiles" class="hover:underline">Profiles</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="bg-cover bg-center h-screen text-white flex items-center justify-center"
-    style="background-image: url('https://images.unsplash.com/photo-1536305030431-0f6c7eacebab?auto=format&fit=crop&w=1600&q=80');">
-    <div class="bg-black bg-opacity-60 p-10 rounded-lg text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">Find Your Perfect Match</h2>
-      <p class="text-lg mb-6">Join the most trusted Matrimony platform in India.</p>
-      <a href="#auth" class="bg-white text-pink-600 font-semibold px-6 py-3 rounded-full hover:bg-pink-200 transition">Get Started</a>
-    </div>
-  </section>
-
-  <!-- Auth Forms (Register/Login) -->
-  <section id="auth" class="py-16 bg-gray-100">
-    <div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-lg">
-      <div class="flex mb-6 justify-center space-x-4">
-        <button onclick="toggleForm('register')" id="registerBtn" class="px-4 py-2 font-semibold text-pink-600 border border-pink-600 rounded">Register</button>
-        <button onclick="toggleForm('login')" id="loginBtn" class="px-4 py-2 font-semibold text-gray-600 border border-gray-600 rounded">Login</button>
+    <!-- Navbar -->
+    <header class="bg-white shadow-md">
+      <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-pink-600">PawPerfect</h1>
+        <nav class="space-x-6">
+          <a href="#breeds" class="text-gray-600 hover:text-pink-600">Breeds</a>
+          <a href="#contact" class="text-gray-600 hover:text-pink-600">Contact</a>
+          <a href="#" class="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700">Buy Now</a>
+        </nav>
       </div>
+    </header>
 
-      <!-- Register Form -->
-      <form id="registerForm" onsubmit="return registerUser(event)">
-        <input class="form-input" type="text" placeholder="Full Name" required>
-        <input class="form-input" type="email" placeholder="Email" required>
-        <input class="form-input" type="text" placeholder="Gender" required>
-        <input class="form-input" type="number" placeholder="Age" required>
-        <input class="form-input" type="text" placeholder="Location" required>
-        <button type="submit" class="btn-primary">Create Account</button>
-      </form>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-pink-100 via-white to-pink-50 py-16">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">Find Your Perfect Pup 🐶</h2>
+        <p class="text-lg text-gray-600 mb-6">Browse our top breeds and bring home joy today!</p>
+        <a href="#breeds" class="bg-pink-600 text-white px-6 py-3 rounded-lg hover:bg-pink-700 transition">Explore Breeds</a>
+      </div>
+    </section>
 
-      <!-- Login Form -->
-      <form id="loginForm" class="hidden" onsubmit="return loginUser(event)">
-        <input class="form-input" type="email" placeholder="Email" required>
-        <input class="form-input" type="password" placeholder="Password" required>
-        <button type="submit" class="btn-primary">Login</button>
-      </form>
-    </div>
-  </section>
+    <!-- Featured Breeds -->
+    <section id="breeds" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <h3 class="text-3xl font-bold text-center mb-10 text-pink-600">Featured Breeds</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <!-- Breed Card -->
+          <div class="bg-pink-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+            <img src="https://placedog.net/400/300?id=1" alt="Golden Retriever" class="w-full h-60 object-cover">
+            <div class="p-5">
+              <h4 class="text-xl font-semibold mb-2">Golden Retriever</h4>
+              <p class="text-gray-600 mb-3">Friendly, intelligent, and devoted. Great for families.</p>
+              <span class="text-pink-600 font-bold">₹35,000</span>
+            </div>
+          </div>
 
-  <!-- Profiles Section -->
-  <section id="profiles" class="py-16">
-    <div class="max-w-7xl mx-auto px-4">
-      <h3 class="text-3xl font-bold text-center mb-8">Profiles Near You</h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-24 h-24 mx-auto rounded-full mb-4" />
-          <h4 class="text-xl font-semibold">Divya, 26</h4>
-          <p class="text-gray-600">Software Engineer, Chennai</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <img src="https://randomuser.me/api/portraits/men/66.jpg" class="w-24 h-24 mx-auto rounded-full mb-4" />
-          <h4 class="text-xl font-semibold">Arun, 29</h4>
-          <p class="text-gray-600">Architect, Coimbatore</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <img src="https://randomuser.me/api/portraits/women/45.jpg" class="w-24 h-24 mx-auto rounded-full mb-4" />
-          <h4 class="text-xl font-semibold">Sneha, 24</h4>
-          <p class="text-gray-600">HR Manager, Bangalore</p>
+          <div class="bg-pink-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+            <img src="https://placedog.net/400/300?id=2" alt="German Shepherd" class="w-full h-60 object-cover">
+            <div class="p-5">
+              <h4 class="text-xl font-semibold mb-2">German Shepherd</h4>
+              <p class="text-gray-600 mb-3">Loyal, courageous, and smart. Excellent guard dog.</p>
+              <span class="text-pink-600 font-bold">₹40,000</span>
+            </div>
+          </div>
+
+          <div class="bg-pink-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+            <img src="https://placedog.net/400/300?id=3" alt="Labrador" class="w-full h-60 object-cover">
+            <div class="p-5">
+              <h4 class="text-xl font-semibold mb-2">Labrador Retriever</h4>
+              <p class="text-gray-600 mb-3">Gentle, outgoing, and playful. Best for kids and elders.</p>
+              <span class="text-pink-600 font-bold">₹30,000</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-8 text-center">
-    <p>&copy; 2025 Matrimony. All rights reserved. Contact: support@matrimony.com</p>
-  </footer>
+    <!-- Contact Section -->
+    <section id="contact" class="bg-pink-100 py-16">
+      <div class="max-w-2xl mx-auto px-6">
+        <h3 class="text-3xl font-bold text-center mb-6 text-gray-800">Contact Us</h3>
+        <form class="bg-white p-8 rounded-lg shadow-md space-y-6">
+          <div>
+            <label class="block mb-2 font-semibold">Your Name</label>
+            <input type="text" placeholder="John Doe" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-pink-500">
+          </div>
+          <div>
+            <label class="block mb-2 font-semibold">Email</label>
+            <input type="email" placeholder="you@example.com" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-pink-500">
+          </div>
+          <div>
+            <label class="block mb-2 font-semibold">Message</label>
+            <textarea rows="4" placeholder="I'm interested in adopting a Labrador..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-pink-500"></textarea>
+          </div>
+          <button type="submit" class="bg-pink-600 text-white px-6 py-2 rounded-lg hover:bg-pink-700">Send Message</button>
+        </form>
+      </div>
+    </section>
 
-  <!-- Inline JavaScript -->
-  <script>
-    function toggleForm(type) {
-      const registerForm = document.getElementById("registerForm");
-      const loginForm = document.getElementById("loginForm");
-      const registerBtn = document.getElementById("registerBtn");
-      const loginBtn = document.getElementById("loginBtn");
+    <!-- Footer -->
+    <footer class="bg-white border-t py-6 mt-12">
+      <div class="text-center text-gray-500 text-sm">
+        © 2025 PawPerfect. All rights reserved.
+      </div>
+    </footer>
 
-      if (type === "register") {
-        registerForm.classList.remove("hidden");
-        loginForm.classList.add("hidden");
-        registerBtn.classList.add("bg-pink-600", "text-white");
-        loginBtn.classList.remove("bg-pink-600", "text-white");
-      } else {
-        loginForm.classList.remove("hidden");
-        registerForm.classList.add("hidden");
-        loginBtn.classList.add("bg-pink-600", "text-white");
-        registerBtn.classList.remove("bg-pink-600", "text-white");
-      }
-    }
-
-    function registerUser(e) {
-      e.preventDefault();
-      alert("Registration successful! (demo)");
-      return false;
-    }
-
-    function loginUser(e) {
-      e.preventDefault();
-      alert("Login successful! (demo)");
-      return false;
-    }
-  </script>
-
-  <!-- Tailwind utility classes -->
-  <style>
-    .form-input {
-      @apply w-full mb-4 px-4 py-2 border border-gray-300 rounded;
-    }
-    .btn-primary {
-      @apply bg-pink-600 text-white font-semibold w-full py-2 rounded hover:bg-pink-700;
-    }
-  </style>
-
-</body>
+  </body>
 </html>
+ 
